@@ -4,3 +4,4 @@
 *.ogg
 *.m4a
 # No files excluded — MP3 included for Vercel deployment
+powershell.cmd

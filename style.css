@@ -32,15 +32,16 @@ body {
 .container {
     max-width: 800px;
     width: 90%;
-    background-color: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(216, 27, 96, 0.3);
+    background-color: rgba(255, 255, 255, 0.96);
+    border-radius: 24px;
+    box-shadow: 0 15px 40px rgba(216, 27, 96, 0.22);
     padding: 30px;
     position: relative;
     z-index: 1;
     overflow: hidden;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 h1, h2 {
@@ -984,8 +985,13 @@ p {
 
 .hero-img {
     animation: floatBounce 4s ease-in-out infinite;
-    filter: drop-shadow(0 12px 24px rgba(216, 27, 96, 0.25));
-    margin-bottom: 10px;
+    filter: drop-shadow(0 10px 20px rgba(216, 27, 96, 0.25));
+    margin: 15px auto;
+    display: block;
+    object-fit: contain;
+    border-radius: 20px;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 @keyframes floatBounce {

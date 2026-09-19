@@ -8,78 +8,71 @@ let ytPlayer = null;
 let ytReady = false;
 
 
-// Initialize particles.js — Enchanted Sparkle Stars
-particlesJS("particles-js", {
-    "particles": {
-        "number": {
-            "value": 120,
-            "density": { "enable": true, "value_area": 900 }
-        },
-        "color": {
-            "value": ["#ffffff", "#ffd6e0", "#ffb6c1", "#ffe4ec", "#f8bbd0", "#b76e79"]
-        },
-        "shape": {
-            "type": "star",
-            "stroke": { "width": 0, "color": "#000000" },
-            "polygon": { "nb_sides": 5 }
-        },
-        "opacity": {
-            "value": 0.75,
-            "random": true,
-            "anim": {
-                "enable": true,
-                "speed": 0.8,
-                "opacity_min": 0.05,
-                "sync": false
-            }
-        },
-        "size": {
-            "value": 3,
-            "random": true,
-            "anim": {
-                "enable": true,
-                "speed": 1.2,
-                "size_min": 0.3,
-                "sync": false
-            }
-        },
-        "line_linked": {
-            "enable": false
-        },
-        "move": {
-            "enable": true,
-            "speed": 0.5,
-            "direction": "none",
-            "random": true,
-            "straight": false,
-            "out_mode": "out",
-            "bounce": false,
-            "attract": { "enable": false }
-        }
-    },
-    "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-            "onhover": { "enable": true, "mode": "bubble" },
-            "onclick": { "enable": true, "mode": "repulse" },
-            "resize": true
-        },
-        "modes": {
-            "bubble": {
-                "distance": 120,
-                "size": 7,
-                "duration": 2,
-                "opacity": 1,
-                "speed": 3
+// Initialize particles.js — Lightweight Enchanted Sparkles (optimized for smooth 60fps on all devices)
+const isMobileDevice = (window.innerWidth < 768) || /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+const particleCount = isMobileDevice ? 24 : 42;
+
+if (typeof particlesJS === 'function') {
+    particlesJS("particles-js", {
+        "particles": {
+            "number": {
+                "value": particleCount,
+                "density": { "enable": true, "value_area": 900 }
             },
-            "repulse": {
-                "distance": 150,
-                "duration": 0.4
+            "color": {
+                "value": ["#ffffff", "#ffd6e0", "#ffb6c1", "#ffe4ec", "#f8bbd0", "#b76e79"]
+            },
+            "shape": {
+                "type": "circle"
+            },
+            "opacity": {
+                "value": 0.65,
+                "random": true,
+                "anim": { "enable": false }
+            },
+            "size": {
+                "value": 3,
+                "random": true,
+                "anim": { "enable": false }
+            },
+            "line_linked": {
+                "enable": false
+            },
+            "move": {
+                "enable": true,
+                "speed": 0.55,
+                "direction": "none",
+                "random": true,
+                "straight": false,
+                "out_mode": "out",
+                "bounce": false,
+                "attract": { "enable": false }
             }
-        }
-    },
-    "retina_detect": true
-});
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+                "onhover": { "enable": !isMobileDevice, "mode": "bubble" },
+                "onclick": { "enable": true, "mode": "repulse" },
+                "resize": true
+            },
+            "modes": {
+                "bubble": {
+                    "distance": 100,
+                    "size": 5,
+                    "duration": 1.5,
+                    "opacity": 0.8,
+                    "speed": 2
+                },
+                "repulse": {
+                    "distance": 120,
+                    "duration": 0.3
+                }
+            }
+        },
+        "retina_detect": false
+    });
+}
 
 // Initialize GSAP animations
 document.addEventListener('DOMContentLoaded', function () {
@@ -349,75 +342,55 @@ function createHearts() {
     }
 }
 
-// Function to create falling petals
+// Function to create falling petals (optimized for smooth 60fps)
 function createPetals() {
     const container = document.getElementById('petalsContainer');
     if (!container) return;
     const petalColors = ['#ffcdd2', '#f8bbd0', '#fce4ec', '#f48fb1'];
+    const count = (window.innerWidth < 768) ? 5 : 8;
 
-    for (let i = 0; i < 15; i++) {
+    container.innerHTML = '';
+    for (let i = 0; i < count; i++) {
         const petal = document.createElement('div');
         petal.classList.add('petal');
 
-        // Random petal shape
-        const petalType = Math.floor(Math.random() * 3);
-        let petalShape;
-        switch (petalType) {
-            case 0:
-                petalShape = "M50,0 C60,15 60,30 50,45 C40,30 40,15 50,0";
-                break;
-            case 1:
-                petalShape = "M50,0 C70,20 70,40 50,50 C30,40 30,20 50,0";
-                break;
-            case 2:
-                petalShape = "M50,0 C55,10 55,25 50,35 C45,25 45,10 50,0";
-                break;
-        }
+        const petalType = i % 3;
+        let petalShape = petalType === 0
+            ? "M50,0 C60,15 60,30 50,45 C40,30 40,15 50,0"
+            : (petalType === 1
+                ? "M50,0 C70,20 70,40 50,50 C30,40 30,20 50,0"
+                : "M50,0 C55,10 55,25 50,35 C45,25 45,10 50,0");
 
-        petal.style.width = `${10 + Math.random() * 20}px`;
-        petal.style.height = `${10 + Math.random() * 20}px`;
-        petal.style.left = `${Math.random() * 100}%`;
-        petal.style.top = `-20px`;
-        petal.style.fill = petalColors[Math.floor(Math.random() * petalColors.length)];
-        petal.style.opacity = 0.7 + Math.random() * 0.3;
+        const size = 12 + (i % 3) * 5;
+        petal.style.width = `${size}px`;
+        petal.style.height = `${size}px`;
+        petal.style.left = `${(i * (100 / count)) + Math.random() * 8}%`;
+        petal.style.top = `-25px`;
+        petal.style.opacity = (0.55 + Math.random() * 0.35).toFixed(2);
+        petal.style.willChange = 'transform';
 
-        // Create SVG for petal
         petal.innerHTML = `
             <svg viewBox="0 0 100 50" width="100%" height="100%">
-                <path d="${petalShape}" fill="${petalColors[Math.floor(Math.random() * petalColors.length)]}" />
+                <path d="${petalShape}" fill="${petalColors[i % petalColors.length]}" />
             </svg>
         `;
 
         container.appendChild(petal);
 
-        // Animate petal falling
-        const duration = 10 + Math.random() * 20;
-        const delay = Math.random() * 15;
-        const sway = 50 + Math.random() * 100;
+        const duration = 10 + Math.random() * 8;
+        const delay = (i * 1.2) % 6;
+        const sway = 30 + Math.random() * 40;
 
         gsap.to(petal, {
             y: window.innerHeight + 50,
-            x: `+=${sway}`,
+            x: `+=${(i % 2 === 0 ? 1 : -1) * sway}`,
             rotation: 360,
             duration: duration,
             delay: delay,
             ease: "none",
-            onComplete: () => {
-                // Reset petal to top
-                petal.style.top = `-20px`;
-                petal.style.left = `${Math.random() * 100}%`;
-                // Repeat animation
-                gsap.to(petal, {
-                    y: window.innerHeight + 50,
-                    x: `+=${sway}`,
-                    rotation: 360,
-                    duration: duration,
-                    ease: "none",
-                    onComplete: () => {
-                        petal.remove();
-                    }
-                });
-            }
+            repeat: -1,
+            repeatRefresh: true,
+            force3D: true
         });
     }
 }
@@ -479,58 +452,32 @@ function typeMessage() {
     }, 500);
 }
 
-// Function to create fireworks
+// Function to create fireworks (hardware-accelerated, zero DOM overhead)
 function createFireworks() {
-    // Create initial fireworks
-    for (let i = 0; i < 8; i++) {
+    if (typeof confetti === 'function') {
+        confetti({
+            particleCount: 80,
+            spread: 100,
+            origin: { y: 0.6 },
+            colors: ['#ff4081', '#f06292', '#f8bbd0', '#d81b60', '#ffeb3b', '#ffffff']
+        });
         setTimeout(() => {
-            createFirework();
-        }, i * 800);
+            confetti({
+                particleCount: 50,
+                angle: 60,
+                spread: 75,
+                origin: { x: 0.15, y: 0.65 },
+                colors: ['#ff80ab', '#ff4081', '#ffffff']
+            });
+            confetti({
+                particleCount: 50,
+                angle: 120,
+                spread: 75,
+                origin: { x: 0.85, y: 0.65 },
+                colors: ['#ff80ab', '#ff4081', '#ffffff']
+            });
+        }, 400);
     }
-
-    // Continue with occasional fireworks
-    setInterval(() => {
-        if (Math.random() > 0.7) {
-            createFirework();
-        }
-    }, 2000);
-}
-
-function createFirework() {
-    const colors = ['#ff4081', '#f06292', '#f8bbd0', '#d81b60', '#ff80ab', '#ffcdd2'];
-
-    // Create firework center
-    const firework = document.createElement('div');
-    firework.classList.add('firework');
-    firework.style.color = colors[Math.floor(Math.random() * colors.length)];
-    firework.style.setProperty('--x', `${Math.random() * window.innerWidth}px`);
-    firework.style.setProperty('--y', `${Math.random() * window.innerHeight * 0.8}px`);
-    firework.style.setProperty('--x-end', `${(Math.random() - 0.5) * 20}px`);
-    firework.style.setProperty('--y-end', `${(Math.random() - 0.5) * 20}px`);
-
-    document.body.appendChild(firework);
-
-    // Create particles
-    setTimeout(() => {
-        for (let i = 0; i < 30; i++) {
-            const particle = document.createElement('div');
-            particle.classList.add('firework-particle');
-            particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-            particle.style.left = firework.style.getPropertyValue('--x');
-            particle.style.top = firework.style.getPropertyValue('--y');
-            particle.style.setProperty('--tx', `${Math.cos(i * 0.2) * 100}px`);
-            particle.style.setProperty('--ty', `${Math.sin(i * 0.2) * 100}px`);
-
-            document.body.appendChild(particle);
-
-            // Remove after animation
-            setTimeout(() => {
-                particle.remove();
-            }, 1000);
-        }
-
-        firework.remove();
-    }, 1000);
 }
 
 // Function to set countdown

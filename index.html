@@ -37,77 +37,12 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js" defer></script>
 
-    <!-- Three.js 3D WebGL Engine -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
     <!-- Site styles -->
     <link rel="stylesheet" href="style.css?v=8">
-
-    <!-- Birthday 3D Intro Modal Styles -->
-    <link rel="stylesheet" href="BirthdayIntroModal.css?v=3">
 </head>
 
 <body>
     <div id="particles-js"></div>
-
-    <!-- =======================================================
-         MIGHTY LITTLE BHEEM 3D WebGL INTRO SEQUENCE
-         ======================================================= -->
-    <div id="birthdayIntroOverlay">
-        <!-- Audio Track: Actual Child Voice Kannada Birthday Wish -->
-        <audio id="introAudioTrack" preload="auto" playsinline>
-            <source src="bheem-birthday-audio.webm" type="audio/webm">
-        </audio>
-
-        <!-- Floating Stage Background (Balloons, Glow, Sparkles) -->
-        <div class="intro-ambient-bg">
-            <div class="intro-light-spotlight"></div>
-            <div class="intro-balloon b1"></div>
-            <div class="intro-balloon b2"></div>
-            <div class="intro-balloon b3"></div>
-            <div class="intro-balloon b4"></div>
-        </div>
-
-        <!-- Top Controls -->
-        <button class="intro-unmute-btn" id="introUnmuteBtn" title="Unmute Audio">
-            <i class="fas fa-volume-up"></i> <span>ಧ್ವನಿ ಆಲಿಸಿ / Tap to Unmute</span>
-        </button>
-
-        <button class="intro-skip-btn" id="introSkipBtn" title="Skip to Birthday Surprise">
-            <span>Skip / Explore Surprise</span> <i class="fas fa-forward"></i>
-        </button>
-
-        <div class="intro-stage-container">
-            <!-- Kannada Speech Card -->
-            <div class="intro-speech-card" id="introSpeechCard">
-                <div class="intro-speaker-badge">
-                    <span class="intro-speaker-dot"></span>
-                    <span>ಮುದ್ದು ಭೀಮ್ (Little Bheem 3D) 🎈</span>
-                </div>
-                <div class="intro-kannada-text" id="introKannadaText">
-                    ಹೇಯ್... ನಿಲ್ಲು ನಿಲ್ಲು! ಎಲ್ಲಿಗೆ ಹೋಗ್ತಿದ್ದೀಯಾ? 🏃‍♂️
-                </div>
-                <div class="intro-audio-wave" id="introAudioWave">
-                    <span class="intro-wave-bar"></span>
-                    <span class="intro-wave-bar"></span>
-                    <span class="intro-wave-bar"></span>
-                    <span class="intro-wave-bar"></span>
-                    <span class="intro-wave-bar"></span>
-                </div>
-            </div>
-
-            <!-- Real-time 3D WebGL Canvas (No static photos, no white boxes!) -->
-            <canvas id="bheem3DCanvas"></canvas>
-
-            <!-- Interactive Action Controls -->
-            <div class="intro-actions-bar">
-                <button class="intro-cta-btn" id="introCtaBtn">
-                    <span>🎀 Explore Surprise ➡️ (ಸರ್ಪ್ರೈಸ್ ನೋಡಿ) ✨</span>
-                </button>
-            </div>
-        </div>
-    </div>
-
     <div class="floating-hearts" id="floatingHearts"></div>
     <div class="petals" id="petalsContainer"></div>
 
@@ -628,7 +563,6 @@
     </div>
 
     <script src="script.js?v=7" defer></script>
-    <script src="BirthdayIntroModal.js?v=2" defer></script>
 </body>
 
 </html>

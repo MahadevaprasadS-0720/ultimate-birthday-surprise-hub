@@ -1200,12 +1200,12 @@ function toggleMusic() {
             // 1. Open the envelope flap (starts after modal stabilizes)
             letterTimers.push(setTimeout(() => {
                 flap.classList.add('open');
-            }, 350));
+            }, 250));
 
             // 2. Slide the letter sheet out of the envelope
             letterTimers.push(setTimeout(() => {
                 wrapper.classList.add('open');
-            }, 850));
+            }, 650));
         }
 
         function closeLetter() {
@@ -1226,20 +1226,20 @@ function toggleMusic() {
             // 2. Close envelope flap
             letterTimers.push(setTimeout(() => {
                 flap.classList.remove('open');
-            }, 300));
+            }, 250));
 
             // 3. Fade modal and overlay out
             letterTimers.push(setTimeout(() => {
                 modal.classList.remove('open');
                 overlay.classList.remove('visible');
-            }, 600));
+            }, 500));
 
             // 4. Hide display elements completely
             letterTimers.push(setTimeout(() => {
                 overlay.style.display = 'none';
                 modal.style.display = 'none';
                 document.body.style.overflow = '';
-            }, 1000));
+            }, 750));
         }
 
         // =====================================================

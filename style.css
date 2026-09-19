@@ -2718,44 +2718,44 @@ p {
 }
 
 /* ======================================================
-   ULTRA-SMOOTH PINK LIQUID GLASS EFFECT
-   Tailored to Website's Romantic Rose & Blush Palette (#d81b60 / #ff4081)
-   Silky Smooth Glassmorphism with Specular Refraction & Micro-Blurs
+   AUTHENTIC HEAVY LIGHT PINK LIQUID GLASS EFFECT
+   Crystal-Clear Translucent Glassmorphism with Soft Rose Accents
+   Ultra Butter-Smooth Motion (No Jerky Animations)
    ====================================================== */
 
 :root {
-    /* Harmonious Romantic Rose-Pink Liquid Gradient */
+    /* Heavy Light Pink Translucent Crystal Liquid Glass */
     --liquid-glass-bg: linear-gradient(
         135deg,
-        rgba(255, 182, 206, 0.65) 0%,
-        rgba(255, 105, 160, 0.7) 45%,
-        rgba(233, 30, 99, 0.76) 80%,
-        rgba(216, 27, 96, 0.84) 100%
+        rgba(255, 255, 255, 0.78) 0%,
+        rgba(255, 238, 245, 0.52) 45%,
+        rgba(255, 218, 232, 0.42) 80%,
+        rgba(255, 195, 218, 0.48) 100%
     );
     --liquid-glass-hover-bg: linear-gradient(
         135deg,
-        rgba(255, 195, 215, 0.75) 0%,
-        rgba(255, 120, 172, 0.8) 45%,
-        rgba(233, 30, 99, 0.86) 80%,
-        rgba(216, 27, 96, 0.92) 100%
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(255, 242, 248, 0.68) 45%,
+        rgba(255, 226, 238, 0.58) 80%,
+        rgba(255, 205, 226, 0.62) 100%
     );
-    --liquid-glass-border: 1.5px solid rgba(255, 255, 255, 0.8);
+    --liquid-glass-border: 1.5px solid rgba(255, 255, 255, 0.92);
     
-    /* Heavy Smooth, Silky Diffuse Shadow & Specular Refraction */
+    /* Heavy Butter-Smooth Silky Glass Shadow & Multi-Layer Refraction */
     --liquid-glass-shadow:
-        0 10px 28px -4px rgba(216, 27, 96, 0.28),
-        0 4px 14px -2px rgba(255, 64, 129, 0.2),
-        inset 0 2px 4px rgba(255, 255, 255, 0.92),
-        inset 0 7px 16px rgba(255, 255, 255, 0.32),
-        inset 0 -3px 8px rgba(173, 20, 87, 0.45),
-        inset 0 -1px 2px rgba(255, 255, 255, 0.6);
+        0 8px 26px -4px rgba(216, 27, 96, 0.12),
+        0 2px 8px rgba(255, 182, 193, 0.18),
+        inset 0 2px 4px rgba(255, 255, 255, 0.98),
+        inset 0 8px 18px rgba(255, 255, 255, 0.4),
+        inset 0 -2.5px 6px rgba(216, 27, 96, 0.1),
+        inset 0 -1px 2px rgba(255, 255, 255, 0.7);
         
     --liquid-glass-hover-shadow:
-        0 16px 38px -4px rgba(216, 27, 96, 0.38),
-        0 8px 18px -2px rgba(255, 64, 129, 0.28),
-        inset 0 2.5px 5px rgba(255, 255, 255, 0.98),
-        inset 0 9px 20px rgba(255, 255, 255, 0.4),
-        inset 0 -3.5px 9px rgba(173, 20, 87, 0.55);
+        0 12px 32px -4px rgba(216, 27, 96, 0.18),
+        0 4px 12px rgba(255, 182, 193, 0.25),
+        inset 0 2.5px 5px #ffffff,
+        inset 0 10px 22px rgba(255, 255, 255, 0.5),
+        inset 0 -3px 7px rgba(216, 27, 96, 0.14);
 }
 
 /* 1. All Primary Action Buttons (.btn, .btn-gift, .btn-adventure, .adventure-submit-btn, .mic-toggle-btn) */
@@ -2768,18 +2768,18 @@ p {
     font-weight: 700 !important;
     font-size: 1.05rem !important;
     letter-spacing: 0.8px !important;
-    color: #ffffff !important;
-    text-shadow: 0 1px 3px rgba(136, 14, 79, 0.35) !important;
+    color: #d81b60 !important;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9) !important;
     background: var(--liquid-glass-bg) !important;
-    backdrop-filter: blur(24px) saturate(185%) !important;
-    -webkit-backdrop-filter: blur(24px) saturate(185%) !important;
+    backdrop-filter: blur(20px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
     border: var(--liquid-glass-border) !important;
     border-radius: 50px !important;
     box-shadow: var(--liquid-glass-shadow) !important;
     position: relative !important;
     overflow: hidden !important;
     cursor: pointer !important;
-    transition: all 0.38s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -2792,78 +2792,71 @@ p {
 .btn-gift::before,
 .btn-adventure::before,
 .adventure-submit-btn::before,
-.mic-toggle-btn:not(.listening)::before {
+.mic-toggle-btn:not(.listening):before {
     content: '' !important;
     position: absolute !important;
     top: 2px !important;
     left: 8px !important;
     right: 8px !important;
-    height: 46% !important;
+    height: 48% !important;
     background: linear-gradient(
         180deg,
-        rgba(255, 255, 255, 0.72) 0%,
-        rgba(255, 255, 255, 0.3) 45%,
-        rgba(255, 255, 255, 0.04) 90%,
+        rgba(255, 255, 255, 0.88) 0%,
+        rgba(255, 255, 255, 0.38) 50%,
+        rgba(255, 255, 255, 0.05) 90%,
         transparent 100%
     ) !important;
     border-radius: 40px 40px 80px 80px / 25px 25px 45px 45px !important;
     pointer-events: none !important;
     z-index: 2 !important;
     opacity: 1 !important;
-    filter: blur(0.3px) !important;
-    transition: all 0.38s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    filter: blur(0.2px) !important;
+    transition: opacity 0.4s ease !important;
 }
 
+/* Butter-Smooth Hover (No Jerky Animations) */
 .btn:hover,
 .btn-gift:hover,
 .btn-adventure:hover,
 .adventure-submit-btn:hover,
 .mic-toggle-btn:not(.listening):hover {
     background: var(--liquid-glass-hover-bg) !important;
-    transform: translateY(-3px) scale(1.025) !important;
+    border-color: rgba(255, 255, 255, 1) !important;
+    transform: translateY(-1.5px) !important;
     box-shadow: var(--liquid-glass-hover-shadow) !important;
-    filter: brightness(1.04) !important;
+    color: #c2185b !important;
 }
 
+/* Butter-Smooth Press */
 .btn:active,
 .btn-gift:active,
 .btn-adventure:active,
 .adventure-submit-btn:active,
 .mic-toggle-btn:not(.listening):active {
-    transform: translateY(1px) scale(0.98) !important;
+    transform: translateY(0.5px) !important;
     box-shadow:
-        0 6px 16px rgba(216, 27, 96, 0.3),
-        inset 0 2px 4px rgba(255, 255, 255, 0.85),
-        inset 0 -2px 6px rgba(173, 20, 87, 0.5) !important;
-    transition: all 0.12s ease !important;
+        0 4px 14px rgba(216, 27, 96, 0.12),
+        inset 0 1.5px 3px rgba(255, 255, 255, 0.95),
+        inset 0 -1.5px 4px rgba(216, 27, 96, 0.1) !important;
+    transition: all 0.1s ease !important;
 }
 
-/* 2. Floating Music Toggle Button (.music-btn) — Heavy Smooth Pill Widget */
+/* 2. Floating Music Toggle Button (.music-btn) — Heavy Light Pink Crystal Glass */
 .music-btn {
     font-family: 'Montserrat', sans-serif !important;
-    font-weight: 600 !important;
+    font-weight: 700 !important;
     font-size: 0.88rem !important;
     letter-spacing: 0.5px !important;
-    background: linear-gradient(
-        135deg,
-        rgba(255, 182, 206, 0.58) 0%,
-        rgba(255, 105, 160, 0.65) 50%,
-        rgba(216, 27, 96, 0.75) 100%
-    ) !important;
-    backdrop-filter: blur(24px) saturate(185%) !important;
-    -webkit-backdrop-filter: blur(24px) saturate(185%) !important;
+    background: var(--liquid-glass-bg) !important;
+    backdrop-filter: blur(20px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
     border: var(--liquid-glass-border) !important;
-    box-shadow:
-        0 8px 24px -3px rgba(216, 27, 96, 0.26),
-        0 3px 10px rgba(255, 64, 129, 0.16),
-        inset 0 2px 4px rgba(255, 255, 255, 0.9),
-        inset 0 6px 14px rgba(255, 255, 255, 0.3),
-        inset 0 -2.5px 6px rgba(173, 20, 87, 0.45) !important;
-    color: #ffffff !important;
-    text-shadow: 0 1px 2px rgba(136, 14, 79, 0.35) !important;
+    box-shadow: var(--liquid-glass-shadow) !important;
+    color: #d81b60 !important;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9) !important;
     position: fixed !important;
     overflow: hidden !important;
-    transition: all 0.38s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .music-btn::before {
@@ -2872,27 +2865,31 @@ p {
     top: 2px !important;
     left: 6px !important;
     right: 6px !important;
-    height: 46% !important;
+    height: 48% !important;
     background: linear-gradient(
         180deg,
-        rgba(255, 255, 255, 0.72) 0%,
-        rgba(255, 255, 255, 0.28) 50%,
+        rgba(255, 255, 255, 0.85) 0%,
+        rgba(255, 255, 255, 0.32) 50%,
         transparent 100%
     ) !important;
     border-radius: 30px 30px 50px 50px / 15px 15px 25px 25px !important;
     pointer-events: none !important;
     z-index: 2 !important;
     opacity: 1 !important;
-    filter: blur(0.3px) !important;
+    filter: blur(0.2px) !important;
 }
 
 .music-btn:hover {
-    transform: scale(1.06) translateY(-2px) !important;
-    box-shadow:
-        0 14px 32px -2px rgba(216, 27, 96, 0.35),
-        inset 0 2.5px 5px rgba(255, 255, 255, 1),
-        inset 0 8px 18px rgba(255, 255, 255, 0.38),
-        inset 0 -3px 8px rgba(173, 20, 87, 0.55) !important;
+    background: var(--liquid-glass-hover-bg) !important;
+    border-color: rgba(255, 255, 255, 1) !important;
+    transform: translateY(-1.5px) !important;
+    box-shadow: var(--liquid-glass-hover-shadow) !important;
+    color: #c2185b !important;
+}
+
+.music-bars span {
+    background: #d81b60 !important;
+    box-shadow: 0 0 3px rgba(216, 27, 96, 0.3) !important;
 }
 
 /* 3. Interactive Love Counter Button (.love-heart-btn) */
@@ -2901,16 +2898,21 @@ p {
     font-weight: 700 !important;
     letter-spacing: 0.6px !important;
     background: var(--liquid-glass-bg) !important;
-    backdrop-filter: blur(24px) saturate(185%) !important;
-    -webkit-backdrop-filter: blur(24px) saturate(185%) !important;
+    backdrop-filter: blur(20px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
     border: var(--liquid-glass-border) !important;
     border-radius: 50px !important;
     box-shadow: var(--liquid-glass-shadow) !important;
-    color: #ffffff !important;
-    text-shadow: 0 1px 3px rgba(136, 14, 79, 0.35) !important;
+    color: #d81b60 !important;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9) !important;
     position: relative !important;
     overflow: hidden !important;
-    transition: all 0.38s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.love-heart-btn .love-heart-icon svg {
+    color: #d81b60 !important;
+    fill: #d81b60 !important;
 }
 
 .love-heart-btn::before {
@@ -2919,169 +2921,142 @@ p {
     top: 2px !important;
     left: 8px !important;
     right: 8px !important;
-    height: 46% !important;
+    height: 48% !important;
     background: linear-gradient(
         180deg,
-        rgba(255, 255, 255, 0.72) 0%,
-        rgba(255, 255, 255, 0.28) 50%,
+        rgba(255, 255, 255, 0.88) 0%,
+        rgba(255, 255, 255, 0.35) 50%,
         transparent 100%
     ) !important;
     border-radius: 40px 40px 80px 80px / 25px 25px 45px 45px !important;
     pointer-events: none !important;
     z-index: 2 !important;
     opacity: 1 !important;
-    filter: blur(0.3px) !important;
+    filter: blur(0.2px) !important;
 }
 
 .love-heart-btn:hover {
     background: var(--liquid-glass-hover-bg) !important;
-    transform: translateY(-3px) scale(1.03) !important;
+    border-color: rgba(255, 255, 255, 1) !important;
+    transform: translateY(-1.5px) !important;
     box-shadow: var(--liquid-glass-hover-shadow) !important;
+    color: #c2185b !important;
 }
 
 /* 4. Love Restart Button (.love-restart-btn) */
 .love-restart-btn {
     font-family: 'Montserrat', sans-serif !important;
     font-weight: 600 !important;
-    background: linear-gradient(
-        135deg,
-        rgba(255, 182, 206, 0.5) 0%,
-        rgba(255, 105, 160, 0.6) 50%,
-        rgba(216, 27, 96, 0.7) 100%
-    ) !important;
-    backdrop-filter: blur(20px) saturate(175%) !important;
-    -webkit-backdrop-filter: blur(20px) saturate(175%) !important;
-    border: 1.5px solid rgba(255, 255, 255, 0.75) !important;
-    color: #ffffff !important;
-    text-shadow: 0 1px 2px rgba(136, 14, 79, 0.3) !important;
+    background: var(--liquid-glass-bg) !important;
+    backdrop-filter: blur(18px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(160%) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.9) !important;
+    color: #d81b60 !important;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8) !important;
     border-radius: 30px !important;
-    box-shadow: 0 4px 16px rgba(216, 27, 96, 0.25), inset 0 1.5px 3px rgba(255, 255, 255, 0.85) !important;
-    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    box-shadow: 0 4px 16px rgba(216, 27, 96, 0.12), inset 0 1.5px 3px rgba(255, 255, 255, 0.95) !important;
+    transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .love-restart-btn:hover {
-    background: linear-gradient(
-        135deg,
-        rgba(255, 195, 215, 0.65) 0%,
-        rgba(255, 120, 172, 0.75) 50%,
-        rgba(216, 27, 96, 0.85) 100%
-    ) !important;
-    transform: translateY(-2px) scale(1.03) !important;
-    box-shadow: 0 6px 22px rgba(216, 27, 96, 0.35), inset 0 2px 4px rgba(255, 255, 255, 0.95) !important;
+    background: var(--liquid-glass-hover-bg) !important;
+    transform: translateY(-1.5px) !important;
+    box-shadow: 0 6px 20px rgba(216, 27, 96, 0.18), inset 0 2px 4px #ffffff !important;
+    color: #c2185b !important;
 }
 
 /* 5. Slider Navigation Arrows (.slider-arrow) */
 .slider-arrow {
-    background: linear-gradient(
-        135deg,
-        rgba(255, 182, 206, 0.65) 0%,
-        rgba(255, 105, 160, 0.75) 50%,
-        rgba(216, 27, 96, 0.85) 100%
-    ) !important;
-    backdrop-filter: blur(20px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-    border: 1.5px solid rgba(255, 255, 255, 0.82) !important;
+    background: var(--liquid-glass-bg) !important;
+    backdrop-filter: blur(18px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(160%) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.92) !important;
     box-shadow:
-        0 6px 20px -2px rgba(216, 27, 96, 0.3),
-        inset 0 2px 4px rgba(255, 255, 255, 0.9),
-        inset 0 -2px 6px rgba(173, 20, 87, 0.5) !important;
-    color: #ffffff !important;
-    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
+        0 6px 20px -2px rgba(216, 27, 96, 0.12),
+        inset 0 2px 4px rgba(255, 255, 255, 0.95),
+        inset 0 -2px 5px rgba(216, 27, 96, 0.08) !important;
+    color: #d81b60 !important;
+    transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .slider-arrow:hover {
-    background: linear-gradient(
-        135deg,
-        rgba(255, 195, 215, 0.8) 0%,
-        rgba(255, 105, 160, 0.88) 50%,
-        rgba(216, 27, 96, 0.95) 100%
-    ) !important;
-    transform: translateY(-50%) scale(1.1) !important;
+    background: var(--liquid-glass-hover-bg) !important;
+    border-color: rgba(255, 255, 255, 1) !important;
+    transform: translateY(-50%) scale(1.04) !important;
     box-shadow:
-        0 10px 28px -2px rgba(216, 27, 96, 0.42),
-        inset 0 2.5px 5px rgba(255, 255, 255, 1),
-        inset 0 -3px 8px rgba(173, 20, 87, 0.6) !important;
+        0 8px 24px -2px rgba(216, 27, 96, 0.2),
+        inset 0 2.5px 5px #ffffff,
+        inset 0 -2px 6px rgba(216, 27, 96, 0.12) !important;
+    color: #c2185b !important;
 }
 
 /* 6. Modal Close Buttons (.adventure-close, .letter-close) */
 .adventure-close,
 .letter-close {
-    background: linear-gradient(
-        135deg,
-        rgba(255, 182, 206, 0.65) 0%,
-        rgba(255, 105, 160, 0.75) 50%,
-        rgba(216, 27, 96, 0.85) 100%
-    ) !important;
-    backdrop-filter: blur(16px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
-    border: 1.5px solid rgba(255, 255, 255, 0.82) !important;
+    background: var(--liquid-glass-bg) !important;
+    backdrop-filter: blur(16px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(160%) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.92) !important;
     box-shadow:
-        0 4px 15px rgba(216, 27, 96, 0.28),
-        inset 0 2px 4px rgba(255, 255, 255, 0.9),
-        inset 0 -2px 5px rgba(173, 20, 87, 0.5) !important;
-    color: #ffffff !important;
+        0 4px 14px rgba(216, 27, 96, 0.12),
+        inset 0 2px 4px rgba(255, 255, 255, 0.95),
+        inset 0 -2px 5px rgba(216, 27, 96, 0.08) !important;
+    color: #d81b60 !important;
     border-radius: 50% !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    transition: background 0.35s ease, box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .adventure-close:hover,
 .letter-close:hover {
-    transform: scale(1.1) rotate(90deg) !important;
-    box-shadow: 0 6px 20px rgba(216, 27, 96, 0.42) !important;
+    background: var(--liquid-glass-hover-bg) !important;
+    transform: scale(1.06) rotate(90deg) !important;
+    box-shadow: 0 6px 18px rgba(216, 27, 96, 0.2) !important;
+    color: #c2185b !important;
 }
 
 /* 7. Date Idea Cards (.date-idea-card) */
 .date-idea-card.selected {
-    background: linear-gradient(
-        135deg,
-        rgba(255, 182, 206, 0.45) 0%,
-        rgba(255, 105, 160, 0.55) 50%,
-        rgba(216, 27, 96, 0.65) 100%
-    ) !important;
-    backdrop-filter: blur(18px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(18px) saturate(180%) !important;
-    border: 1.5px solid rgba(255, 255, 255, 0.88) !important;
+    background: var(--liquid-glass-bg) !important;
+    backdrop-filter: blur(18px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(160%) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.95) !important;
     box-shadow:
-        0 8px 24px -2px rgba(216, 27, 96, 0.28),
-        inset 0 2px 4px rgba(255, 255, 255, 0.9),
-        inset 0 -2px 6px rgba(173, 20, 87, 0.45) !important;
-    transform: scale(1.05) !important;
+        0 8px 24px -2px rgba(216, 27, 96, 0.14),
+        inset 0 2px 4px rgba(255, 255, 255, 0.95),
+        inset 0 -2px 5px rgba(216, 27, 96, 0.1) !important;
+    transform: scale(1.03) !important;
 }
 
 .date-idea-card.selected .date-idea-label {
     font-family: 'Montserrat', sans-serif !important;
     font-weight: 700 !important;
-    color: #ffffff !important;
-    text-shadow: 0 1px 2px rgba(136, 14, 79, 0.4) !important;
+    color: #d81b60 !important;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8) !important;
 }
 
-/* 8. Open When Letters Cards (.open-when-card) — Heavy Smooth Pink Fluid Glass */
+/* 8. Open When Letters Cards (.open-when-card) — Heavy Light Pink Crystal Glass */
 .open-when-card {
     font-family: 'Montserrat', sans-serif !important;
-    background: linear-gradient(
-        135deg,
-        rgba(255, 245, 248, 0.82) 0%,
-        rgba(255, 225, 238, 0.7) 100%
-    ) !important;
-    backdrop-filter: blur(18px) saturate(175%) !important;
-    -webkit-backdrop-filter: blur(18px) saturate(175%) !important;
-    border: 1.5px solid rgba(255, 255, 255, 0.88) !important;
+    background: var(--liquid-glass-bg) !important;
+    backdrop-filter: blur(18px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(160%) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.92) !important;
     border-radius: 20px !important;
     box-shadow:
-        0 8px 24px -3px rgba(216, 27, 96, 0.12),
-        inset 0 2px 4px rgba(255, 255, 255, 0.95),
-        inset 0 -2px 5px rgba(216, 27, 96, 0.1) !important;
+        0 8px 24px -3px rgba(216, 27, 96, 0.08),
+        inset 0 2px 4px rgba(255, 255, 255, 0.98),
+        inset 0 -2px 5px rgba(216, 27, 96, 0.06) !important;
     position: relative !important;
     overflow: hidden !important;
-    transition: all 0.38s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .open-when-card .open-when-label {
     font-family: 'Montserrat', sans-serif !important;
-    font-weight: 600 !important;
+    font-weight: 700 !important;
     color: #d81b60 !important;
 }
 
@@ -3094,49 +3069,40 @@ p {
     height: 45% !important;
     background: linear-gradient(
         180deg,
-        rgba(255, 255, 255, 0.72) 0%,
-        rgba(255, 255, 255, 0.2) 60%,
+        rgba(255, 255, 255, 0.85) 0%,
+        rgba(255, 255, 255, 0.3) 60%,
         transparent 100%
     ) !important;
     border-radius: 18px 18px 30px 30px / 12px 12px 20px 20px !important;
     pointer-events: none !important;
     z-index: 1 !important;
-    filter: blur(0.3px) !important;
+    filter: blur(0.2px) !important;
 }
 
 .open-when-card:hover {
-    transform: translateY(-5px) scale(1.025) !important;
-    background: linear-gradient(
-        135deg,
-        rgba(255, 235, 244, 0.92) 0%,
-        rgba(255, 210, 230, 0.82) 100%
-    ) !important;
+    transform: translateY(-2px) !important;
+    background: var(--liquid-glass-hover-bg) !important;
     border-color: rgba(255, 255, 255, 1) !important;
     box-shadow:
-        0 14px 30px -4px rgba(216, 27, 96, 0.22),
-        inset 0 2.5px 5px rgba(255, 255, 255, 1),
-        inset 0 -3px 6px rgba(216, 27, 96, 0.16) !important;
+        0 12px 28px -4px rgba(216, 27, 96, 0.16),
+        inset 0 2.5px 5px #ffffff,
+        inset 0 -2px 6px rgba(216, 27, 96, 0.1) !important;
 }
 
-/* 9. Social Share Icons (.social-icon) — Heavy Smooth Pink Fluid Glass Bubbles */
+/* 9. Social Share Icons (.social-icon) — Heavy Light Pink Crystal Glass Bubbles */
 .social-icon {
-    background: linear-gradient(
-        135deg,
-        rgba(255, 182, 206, 0.65) 0%,
-        rgba(255, 105, 160, 0.75) 50%,
-        rgba(216, 27, 96, 0.85) 100%
-    ) !important;
-    backdrop-filter: blur(18px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(18px) saturate(180%) !important;
-    border: 1.5px solid rgba(255, 255, 255, 0.82) !important;
+    background: var(--liquid-glass-bg) !important;
+    backdrop-filter: blur(18px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(160%) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.9) !important;
     box-shadow:
-        0 6px 18px -2px rgba(216, 27, 96, 0.28),
-        inset 0 2px 4px rgba(255, 255, 255, 0.9),
-        inset 0 -2px 5px rgba(173, 20, 87, 0.5) !important;
-    color: #ffffff !important;
+        0 6px 18px -2px rgba(216, 27, 96, 0.12),
+        inset 0 2px 4px rgba(255, 255, 255, 0.95),
+        inset 0 -2px 5px rgba(216, 27, 96, 0.08) !important;
+    color: #d81b60 !important;
     position: relative !important;
     overflow: hidden !important;
-    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    transition: background 0.35s ease, box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .social-icon::before {
@@ -3148,22 +3114,25 @@ p {
     height: 48% !important;
     background: linear-gradient(
         180deg,
-        rgba(255, 255, 255, 0.72) 0%,
-        rgba(255, 255, 255, 0.25) 50%,
+        rgba(255, 255, 255, 0.85) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
         transparent 100%
     ) !important;
     border-radius: 50% 50% 100% 100% / 50% 50% 20% 20% !important;
     pointer-events: none !important;
     z-index: 1 !important;
-    filter: blur(0.3px) !important;
+    filter: blur(0.2px) !important;
 }
 
 .social-icon:hover {
-    transform: translateY(-4px) scale(1.08) !important;
+    background: var(--liquid-glass-hover-bg) !important;
+    transform: translateY(-2px) !important;
     box-shadow:
-        0 10px 24px -2px rgba(216, 27, 96, 0.42),
-        inset 0 2.5px 5px rgba(255, 255, 255, 1),
-        inset 0 -3px 8px rgba(173, 20, 87, 0.6) !important;
+        0 8px 22px -2px rgba(216, 27, 96, 0.2),
+        inset 0 2.5px 5px #ffffff,
+        inset 0 -2px 6px rgba(216, 27, 96, 0.12) !important;
+    color: #c2185b !important;
 }
+
 
 

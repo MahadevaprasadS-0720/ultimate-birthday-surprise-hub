@@ -1,0 +1,560 @@
+/* ===================================================================
+   MIGHTY LITTLE BHEEM - 3D ANIMATED BIRTHDAY SURPRISE INTRO
+   Magical 3D Toddler Animation & Kannada Speech Experience
+   =================================================================== */
+
+:root {
+  --bheem-primary: #ff7b25;
+  --bheem-gold: #ffbe3b;
+  --bheem-pink: #ff5e97;
+  --bheem-purple: #9d4edd;
+  --bheem-bg: radial-gradient(circle at 50% 30%, rgba(255, 230, 240, 0.95), rgba(255, 192, 203, 0.85) 60%, rgba(248, 168, 200, 0.98) 100%);
+}
+
+/* Fullscreen Overlay */
+#bheemIntroModal {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 99999;
+  background: var(--bheem-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1200px;
+  font-family: 'Poppins', 'Outfit', 'Segoe UI', sans-serif;
+  opacity: 1;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s ease;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#bheemIntroModal.modal-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* 3D Festive Background: Floating Balloons & Sparkles */
+.bheem-stage-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.bheem-light-glow {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.85) 0%, rgba(255, 220, 180, 0.4) 45%, rgba(255, 255, 255, 0) 70%);
+  filter: blur(40px);
+  animation: pulseGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.7; }
+  100% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+}
+
+/* Floating Balloons */
+.bheem-balloon {
+  position: absolute;
+  bottom: -150px;
+  border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+  opacity: 0.8;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
+  animation: floatUpward linear infinite;
+}
+
+.bheem-balloon::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 35px;
+  background: rgba(180, 150, 170, 0.6);
+}
+
+.balloon-1 {
+  left: 8%;
+  width: 65px;
+  height: 80px;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+  animation-duration: 11s;
+  animation-delay: 0s;
+}
+
+.balloon-2 {
+  left: 22%;
+  width: 50px;
+  height: 62px;
+  background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+  animation-duration: 13s;
+  animation-delay: 2s;
+}
+
+.balloon-3 {
+  right: 18%;
+  width: 75px;
+  height: 92px;
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  animation-duration: 10s;
+  animation-delay: 1s;
+}
+
+.balloon-4 {
+  right: 7%;
+  width: 55px;
+  height: 68px;
+  background: linear-gradient(135deg, #ff8177 0%, #b12a5b 100%);
+  animation-duration: 12s;
+  animation-delay: 3.5s;
+}
+
+@keyframes floatUpward {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-60vh) rotate(5deg); }
+  100% { transform: translateY(-120vh) rotate(-5deg); }
+}
+
+/* Floating Bokeh Sparkles */
+.bheem-sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.sparkle-dot {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #fff, 0 0 20px #ffbe3b;
+  animation: sparkleTwinkle 2.5s infinite ease-in-out alternate;
+}
+
+@keyframes sparkleTwinkle {
+  0% { opacity: 0.2; transform: scale(0.6); }
+  100% { opacity: 1; transform: scale(1.3); }
+}
+
+/* 3D Stage Container */
+.bheem-stage {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 640px;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Character 3D Floor Shadow */
+.bheem-shadow {
+  position: absolute;
+  bottom: 12%;
+  width: 180px;
+  height: 28px;
+  background: radial-gradient(ellipse at center, rgba(80, 30, 50, 0.35) 0%, rgba(0, 0, 0, 0) 75%);
+  border-radius: 50%;
+  transform: scale(0.3);
+  opacity: 0.3;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  z-index: 5;
+}
+
+/* Bheem Character Wrapper */
+.bheem-actor-wrapper {
+  position: relative;
+  width: 320px;
+  height: 380px;
+  margin-top: auto;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 10;
+  transform-origin: bottom center;
+}
+
+/* Poses */
+.bheem-pose {
+  position: absolute;
+  bottom: 0;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 25px rgba(180, 50, 80, 0.25)) drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: none;
+}
+
+.bheem-pose.active-pose {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Pose 1: Running Animation */
+.pose-running.active-pose {
+  animation: toddleRun 0.42s ease-in-out infinite alternate;
+}
+
+@keyframes toddleRun {
+  0% {
+    transform: translateY(0) rotate(-4deg) scaleX(0.97);
+  }
+  100% {
+    transform: translateY(-16px) rotate(4deg) scaleX(1.03);
+  }
+}
+
+/* Character approach during 0s - 2.5s */
+.bheem-actor-wrapper.approaching {
+  animation: runTowardsCamera 2.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes runTowardsCamera {
+  0% {
+    transform: translateY(-80px) scale(0.28);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(0px) scale(1.08);
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Pose 2: Panting Animation */
+.pose-panting.active-pose {
+  animation: pantingBreath 0.75s ease-in-out infinite alternate;
+}
+
+@keyframes pantingBreath {
+  0% {
+    transform: scaleY(0.96) scaleX(1.03) translateY(3px);
+  }
+  100% {
+    transform: scaleY(1.03) scaleX(0.98) translateY(-2px);
+  }
+}
+
+/* Pose 3: Waving Animation */
+.pose-waving.active-pose {
+  animation: wavingJoy 1.1s ease-in-out infinite alternate;
+}
+
+@keyframes wavingJoy {
+  0% {
+    transform: rotate(-3deg) translateY(0);
+  }
+  50% {
+    transform: rotate(3deg) translateY(-8px);
+  }
+  100% {
+    transform: rotate(1deg) translateY(-3px);
+  }
+}
+
+/* Pose 4: Pointing & Winking Animation */
+.pose-pointing.active-pose {
+  animation: pointingBounce 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes pointingBounce {
+  0% {
+    transform: scale(1) translateY(0) rotate(-1deg);
+  }
+  100% {
+    transform: scale(1.04) translateY(-6px) rotate(2deg);
+  }
+}
+
+/* Speech Bubble */
+.bheem-speech-card {
+  position: relative;
+  width: 90%;
+  max-width: 480px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 28px;
+  padding: 18px 24px 20px 24px;
+  box-shadow: 0 15px 35px rgba(230, 70, 110, 0.22), 0 0 0 3px rgba(255, 255, 255, 0.9), inset 0 2px 4px rgba(255, 255, 255, 0.8);
+  margin-bottom: 12px;
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+  transition: opacity 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 20;
+  text-align: center;
+}
+
+.bheem-speech-card.show-bubble {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Bubble Tail pointing down towards Bheem */
+.bheem-speech-card::after {
+  content: '';
+  position: absolute;
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-top: 15px solid rgba(255, 255, 255, 0.92);
+  filter: drop-shadow(0 3px 2px rgba(230, 70, 110, 0.12));
+}
+
+.bheem-speaker-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #ff7b25, #ff5e97);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 3px 10px rgba(255, 94, 151, 0.35);
+}
+
+.bheem-speaker-tag .bheem-avatar-mini {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ffbe3b;
+  display: inline-block;
+}
+
+/* Kannada Dialogue Text */
+.bheem-kannada-text {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #441026;
+  font-weight: 600;
+  min-height: 70px;
+  transition: all 0.3s ease;
+  word-break: keep-all;
+}
+
+/* Highlight / Karaoke effect on spoken words */
+.karaoke-phrase {
+  display: inline;
+  transition: color 0.25s ease, background 0.25s ease;
+  border-radius: 4px;
+  padding: 0 2px;
+}
+
+.karaoke-phrase.active-phrase {
+  color: #d1105a;
+  background: rgba(255, 220, 100, 0.45);
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(255, 180, 0, 0.4);
+}
+
+/* Audio Wave Indicator */
+.bheem-audio-wave {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 16px;
+  margin-top: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.bheem-audio-wave.speaking {
+  opacity: 1;
+}
+
+.wave-bar {
+  width: 3px;
+  height: 6px;
+  background: #ff5e97;
+  border-radius: 3px;
+  animation: wavePulse 0.8s ease-in-out infinite alternate;
+}
+
+.wave-bar:nth-child(2) { animation-delay: 0.15s; height: 14px; }
+.wave-bar:nth-child(3) { animation-delay: 0.3s; height: 10px; }
+.wave-bar:nth-child(4) { animation-delay: 0.45s; height: 16px; }
+.wave-bar:nth-child(5) { animation-delay: 0.2s; height: 8px; }
+
+@keyframes wavePulse {
+  0% { height: 4px; }
+  100% { height: 16px; }
+}
+
+/* Actions Bar */
+.bheem-actions {
+  position: relative;
+  z-index: 25;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+  min-height: 60px;
+}
+
+/* Start Button (Unlocks Audio on User Tap) */
+.bheem-btn-start {
+  background: linear-gradient(135deg, #ff4081, #ff7b25);
+  color: white;
+  border: none;
+  padding: 14px 34px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(255, 64, 129, 0.45), 0 0 0 3px rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: startButtonPulse 1.8s infinite;
+}
+
+.bheem-btn-start:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 32px rgba(255, 64, 129, 0.6), 0 0 0 4px rgba(255, 255, 255, 0.9);
+}
+
+.bheem-btn-start:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+@keyframes startButtonPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); box-shadow: 0 12px 30px rgba(255, 64, 129, 0.55), 0 0 20px rgba(255, 190, 59, 0.6); }
+  100% { transform: scale(1); }
+}
+
+/* Final CTA Button: Open Birthday Surprise */
+.bheem-btn-cta {
+  background: linear-gradient(135deg, #ff1493, #ff8c00, #ff007f);
+  background-size: 200% 200%;
+  animation: gradientFlow 3s ease infinite, ctaBounce 1.6s ease-in-out infinite alternate;
+  color: #fff;
+  border: none;
+  padding: 16px 38px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(255, 20, 147, 0.45), 0 0 0 4px rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+}
+
+.bheem-btn-cta.show-cta {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.bheem-btn-cta:hover {
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 0 18px 38px rgba(255, 20, 147, 0.65), 0 0 25px rgba(255, 215, 0, 0.8);
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes ctaBounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-8px); }
+}
+
+/* Skip / Replay small control button */
+.bheem-skip-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  color: #772b49;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 7px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bheem-skip-btn:hover {
+  background: rgba(255, 255, 255, 0.95);
+  color: #d1105a;
+  transform: translateY(-1px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .bheem-actor-wrapper {
+    width: 260px;
+    height: 310px;
+    margin-bottom: 15px;
+  }
+  
+  .bheem-speech-card {
+    padding: 14px 18px 16px 18px;
+    border-radius: 22px;
+  }
+  
+  .bheem-kannada-text {
+    font-size: 0.95rem;
+    min-height: 60px;
+  }
+
+  .bheem-btn-start {
+    font-size: 1.05rem;
+    padding: 12px 28px;
+  }
+
+  .bheem-btn-cta {
+    font-size: 1.1rem;
+    padding: 14px 30px;
+  }
+}

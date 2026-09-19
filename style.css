@@ -2717,6 +2717,325 @@ p {
     transform: translateY(-2px);
 }
 
+/* ======================================================
+   PINK LIQUID GLASS EFFECT (Aesthetic Laboratory Fluid Glass)
+   Hyper-Realistic Apple/Liquid Jelly Glassmorphism
+   ====================================================== */
 
+:root {
+    --liquid-glass-bg: linear-gradient(135deg, rgba(255, 140, 195, 0.65) 0%, rgba(255, 51, 133, 0.82) 50%, rgba(255, 105, 180, 0.7) 100%);
+    --liquid-glass-border: 1.5px solid rgba(255, 255, 255, 0.85);
+    --liquid-glass-shadow:
+        0 10px 30px rgba(255, 20, 147, 0.38),
+        0 4px 12px rgba(255, 105, 180, 0.25),
+        inset 0 2.5px 5px rgba(255, 255, 255, 0.95),
+        inset 0 8px 18px rgba(255, 255, 255, 0.4),
+        inset 0 -3px 8px rgba(173, 20, 87, 0.65),
+        inset 0 -1px 2px rgba(255, 255, 255, 0.5);
+    --liquid-glass-hover-shadow:
+        0 16px 42px rgba(255, 20, 147, 0.55),
+        0 6px 20px rgba(255, 105, 180, 0.4),
+        inset 0 3px 6px rgba(255, 255, 255, 1),
+        inset 0 10px 24px rgba(255, 255, 255, 0.55),
+        inset 0 -4px 10px rgba(173, 20, 87, 0.75);
+}
 
+/* 1. All Primary Action Buttons (.btn, .btn-gift, .btn-adventure, .adventure-submit-btn, .mic-toggle-btn) */
+.btn,
+.btn-gift,
+.btn-adventure,
+.adventure-submit-btn,
+.mic-toggle-btn:not(.listening) {
+    background: var(--liquid-glass-bg) !important;
+    backdrop-filter: blur(16px) saturate(200%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(200%) !important;
+    border: var(--liquid-glass-border) !important;
+    border-radius: 50px !important;
+    color: #ffffff !important;
+    box-shadow: var(--liquid-glass-shadow) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    cursor: pointer !important;
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    text-shadow: 0 1px 3px rgba(136, 14, 79, 0.5) !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.8px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    z-index: 1 !important;
+}
+
+/* Gloss Specular Curved Highlight on Top Half */
+.btn::before,
+.btn-gift::before,
+.btn-adventure::before,
+.adventure-submit-btn::before,
+.mic-toggle-btn:not(.listening)::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 2px !important;
+    left: 8px !important;
+    right: 8px !important;
+    height: 48% !important;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.12) 100%) !important;
+    border-radius: 40px 40px 100px 100px / 25px 25px 50px 50px !important;
+    pointer-events: none !important;
+    z-index: 2 !important;
+    opacity: 1 !important;
+    transition: opacity 0.3s, transform 0.3s !important;
+}
+
+.btn:hover,
+.btn-gift:hover,
+.btn-adventure:hover,
+.adventure-submit-btn:hover,
+.mic-toggle-btn:not(.listening):hover {
+    transform: translateY(-4px) scale(1.04) !important;
+    box-shadow: var(--liquid-glass-hover-shadow) !important;
+    filter: brightness(1.08) !important;
+}
+
+.btn:active,
+.btn-gift:active,
+.btn-adventure:active,
+.adventure-submit-btn:active,
+.mic-toggle-btn:not(.listening):active {
+    transform: translateY(1px) scale(0.97) !important;
+    box-shadow:
+        0 6px 18px rgba(255, 20, 147, 0.4),
+        inset 0 2px 4px rgba(255, 255, 255, 0.85),
+        inset 0 -2px 6px rgba(173, 20, 87, 0.6) !important;
+}
+
+/* 2. Floating Music Toggle Button (.music-btn) — Pill Widget Look */
+.music-btn {
+    background: linear-gradient(135deg, rgba(255, 140, 195, 0.55) 0%, rgba(255, 51, 133, 0.75) 50%, rgba(255, 105, 180, 0.6) 100%) !important;
+    backdrop-filter: blur(18px) saturate(200%) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(200%) !important;
+    border: var(--liquid-glass-border) !important;
+    box-shadow:
+        0 8px 25px rgba(255, 20, 147, 0.35),
+        0 2px 8px rgba(255, 105, 180, 0.2),
+        inset 0 2px 4px rgba(255, 255, 255, 0.9),
+        inset 0 6px 14px rgba(255, 255, 255, 0.35),
+        inset 0 -2.5px 6px rgba(173, 20, 87, 0.6) !important;
+    color: #fff !important;
+    position: fixed !important;
+    overflow: hidden !important;
+}
+
+.music-btn::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 2px !important;
+    left: 6px !important;
+    right: 6px !important;
+    height: 48% !important;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.1) 100%) !important;
+    border-radius: 30px 30px 60px 60px / 15px 15px 30px 30px !important;
+    pointer-events: none !important;
+    z-index: 2 !important;
+    opacity: 1 !important;
+}
+
+.music-btn:hover {
+    transform: scale(1.08) translateY(-2px) !important;
+    box-shadow:
+        0 12px 35px rgba(255, 20, 147, 0.5),
+        inset 0 2.5px 5px rgba(255, 255, 255, 1),
+        inset 0 8px 18px rgba(255, 255, 255, 0.45),
+        inset 0 -3px 8px rgba(173, 20, 87, 0.7) !important;
+}
+
+/* 3. Interactive Love Counter Button (.love-heart-btn) */
+.love-heart-btn {
+    background: var(--liquid-glass-bg) !important;
+    backdrop-filter: blur(16px) saturate(200%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(200%) !important;
+    border: var(--liquid-glass-border) !important;
+    border-radius: 50px !important;
+    box-shadow: var(--liquid-glass-shadow) !important;
+    color: #fff !important;
+    text-shadow: 0 1px 3px rgba(136, 14, 79, 0.5) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.love-heart-btn::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 2px !important;
+    left: 8px !important;
+    right: 8px !important;
+    height: 48% !important;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.12) 100%) !important;
+    border-radius: 40px 40px 100px 100px / 25px 25px 50px 50px !important;
+    pointer-events: none !important;
+    z-index: 2 !important;
+    opacity: 1 !important;
+}
+
+.love-heart-btn:hover {
+    transform: translateY(-3px) scale(1.05) !important;
+    box-shadow: var(--liquid-glass-hover-shadow) !important;
+}
+
+/* 4. Love Restart Button (.love-restart-btn) */
+.love-restart-btn {
+    background: linear-gradient(135deg, rgba(255, 140, 195, 0.45) 0%, rgba(255, 51, 133, 0.65) 100%) !important;
+    backdrop-filter: blur(14px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(14px) saturate(180%) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.8) !important;
+    color: #ffffff !important;
+    border-radius: 30px !important;
+    box-shadow: 0 4px 16px rgba(216, 27, 96, 0.3), inset 0 1.5px 3px rgba(255, 255, 255, 0.8) !important;
+}
+
+.love-restart-btn:hover {
+    background: linear-gradient(135deg, rgba(255, 140, 195, 0.65) 0%, rgba(255, 51, 133, 0.85) 100%) !important;
+    transform: translateY(-2px) scale(1.04) !important;
+    box-shadow: 0 6px 22px rgba(216, 27, 96, 0.45), inset 0 2px 4px rgba(255, 255, 255, 0.95) !important;
+}
+
+/* 5. Slider Navigation Arrows (.slider-arrow) */
+.slider-arrow {
+    background: linear-gradient(135deg, rgba(255, 140, 195, 0.65) 0%, rgba(255, 51, 133, 0.8) 100%) !important;
+    backdrop-filter: blur(14px) saturate(200%) !important;
+    -webkit-backdrop-filter: blur(14px) saturate(200%) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.85) !important;
+    box-shadow:
+        0 6px 20px rgba(255, 20, 147, 0.35),
+        inset 0 2px 4px rgba(255, 255, 255, 0.9),
+        inset 0 -2px 6px rgba(173, 20, 87, 0.6) !important;
+    color: #fff !important;
+}
+
+.slider-arrow:hover {
+    background: linear-gradient(135deg, rgba(255, 140, 195, 0.85) 0%, rgba(255, 20, 147, 0.95) 100%) !important;
+    transform: translateY(-50%) scale(1.12) !important;
+    box-shadow:
+        0 10px 28px rgba(255, 20, 147, 0.5),
+        inset 0 2.5px 5px rgba(255, 255, 255, 1),
+        inset 0 -3px 8px rgba(173, 20, 87, 0.7) !important;
+}
+
+/* 6. Modal Close Buttons (.adventure-close, .letter-close) */
+.adventure-close,
+.letter-close {
+    background: linear-gradient(135deg, rgba(255, 140, 195, 0.7) 0%, rgba(255, 51, 133, 0.85) 100%) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.85) !important;
+    box-shadow:
+        0 4px 15px rgba(255, 20, 147, 0.35),
+        inset 0 2px 4px rgba(255, 255, 255, 0.9),
+        inset 0 -2px 5px rgba(173, 20, 87, 0.6) !important;
+    color: #fff !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.3s ease !important;
+}
+
+.adventure-close:hover,
+.letter-close:hover {
+    transform: scale(1.1) rotate(90deg) !important;
+    box-shadow: 0 6px 20px rgba(255, 20, 147, 0.5) !important;
+}
+
+/* 7. Date Idea Cards (.date-idea-card) */
+.date-idea-card.selected {
+    background: linear-gradient(135deg, rgba(255, 140, 195, 0.45) 0%, rgba(255, 51, 133, 0.65) 50%, rgba(255, 105, 180, 0.5) 100%) !important;
+    backdrop-filter: blur(14px) saturate(190%) !important;
+    -webkit-backdrop-filter: blur(14px) saturate(190%) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.9) !important;
+    box-shadow:
+        0 8px 24px rgba(255, 20, 147, 0.35),
+        inset 0 2px 4px rgba(255, 255, 255, 0.9),
+        inset 0 -2px 6px rgba(173, 20, 87, 0.5) !important;
+    transform: scale(1.06) !important;
+}
+
+.date-idea-card.selected .date-idea-label {
+    color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(136, 14, 79, 0.5) !important;
+}
+
+/* 8. Open When Letters Cards (.open-when-card) — Pink Fluid Glass */
+.open-when-card {
+    background: linear-gradient(135deg, rgba(255, 240, 246, 0.78) 0%, rgba(255, 220, 235, 0.62) 100%) !important;
+    backdrop-filter: blur(14px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(14px) saturate(180%) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.9) !important;
+    border-radius: 20px !important;
+    box-shadow:
+        0 8px 24px rgba(255, 20, 147, 0.14),
+        inset 0 2px 4px rgba(255, 255, 255, 0.95),
+        inset 0 -2px 5px rgba(216, 27, 96, 0.12) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.open-when-card::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 2px !important;
+    left: 6px !important;
+    right: 6px !important;
+    height: 45% !important;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    border-radius: 18px 18px 30px 30px / 12px 12px 20px 20px !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+}
+
+.open-when-card:hover {
+    transform: translateY(-6px) scale(1.03) !important;
+    background: linear-gradient(135deg, rgba(255, 230, 242, 0.88) 0%, rgba(255, 200, 225, 0.75) 100%) !important;
+    border-color: rgba(255, 255, 255, 1) !important;
+    box-shadow:
+        0 14px 32px rgba(255, 20, 147, 0.26),
+        inset 0 2.5px 5px rgba(255, 255, 255, 1),
+        inset 0 -3px 6px rgba(216, 27, 96, 0.18) !important;
+}
+
+/* 9. Social Share Icons (.social-icon) — Pink Fluid Glass Bubbles */
+.social-icon {
+    background: linear-gradient(135deg, rgba(255, 140, 195, 0.65) 0%, rgba(255, 51, 133, 0.8) 100%) !important;
+    backdrop-filter: blur(14px) saturate(200%) !important;
+    -webkit-backdrop-filter: blur(14px) saturate(200%) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.85) !important;
+    box-shadow:
+        0 6px 18px rgba(255, 20, 147, 0.35),
+        inset 0 2px 4px rgba(255, 255, 255, 0.9),
+        inset 0 -2px 5px rgba(173, 20, 87, 0.6) !important;
+    color: #fff !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.social-icon::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 2px !important;
+    left: 4px !important;
+    right: 4px !important;
+    height: 48% !important;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.1) 100%) !important;
+    border-radius: 50% 50% 100% 100% / 50% 50% 20% 20% !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+}
+
+.social-icon:hover {
+    transform: translateY(-4px) scale(1.1) !important;
+    box-shadow:
+        0 10px 25px rgba(255, 20, 147, 0.5),
+        inset 0 2.5px 5px rgba(255, 255, 255, 1),
+        inset 0 -3px 8px rgba(173, 20, 87, 0.7) !important;
+}
 
